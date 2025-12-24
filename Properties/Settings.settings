@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="efficiencyCalculator.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AppTheme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Svijetli režim</Value>
+    </Setting>
+    <Setting Name="Price" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.1229</Value>
+    </Setting>
+    <Setting Name="PriceUpdated" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10.12.2025.</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,118 @@
+﻿<Window x:Class="efficiencyCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:efficiencyCalculator"
+        xmlns:helpers="clr-namespace:efficiencyCalculator.Helpers"
+        xmlns:model ="clr-namespace:efficiencyCalculator.Model"
+        xmlns:views="clr-namespace:efficiencyCalculator.View.UserComponents"
+        mc:Ignorable="d"
+        Height="650" Width="800" Title="kiloWHATT" WindowStartupLocation="CenterScreen" 
+        ResizeMode="CanMinimize" FontFamily="Arial"
+        BorderThickness="2" Icon="/Resources/Icon/icon.ico" Background="{DynamicResource windowBackground}"
+        Foreground="{DynamicResource windowForeground}">
+    <Window.Resources>
+        <helpers:SliderValueConverter x:Key="SliderValueConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"></ColumnDefinition>
+            <ColumnDefinition Width="25*"></ColumnDefinition>
+            <ColumnDefinition Width="25*"></ColumnDefinition>
+            <ColumnDefinition Width="25*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock HorizontalAlignment="Left" Margin="50,25,0,0" Grid.ColumnSpan="3" FontSize="21" FontWeight="SemiBold" FontFamily="Arial"  VerticalAlignment="Top" Text="Kalkulator potrošnje el. energije i efikasnosti uređaja"/>
+        <Border CornerRadius="15" Background="{DynamicResource stackPanelBackground}" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="45,80,0,0" Padding="5" Grid.ColumnSpan="3" Height="267" Width="429">
+            <StackPanel>
+                <TextBlock Margin="20,10,0,0" FontSize="20" HorizontalAlignment="Left" Height="25" Width="120"><Run Text="Unos ure"/><Run Language="sr-latn-ba" Text="đ"/><Run Text="aja"/></TextBlock>
+                <TextBox TabIndex="1" Focusable="True" Name="txtDeviceName" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="20,10,0,0" Text="Naziv uređaja" Width="380" GotFocus="txtDeviceName_GotFocus" LostFocus="txtDeviceName_LostFocus" />
+                <TextBox TabIndex="2" Name="txtDevicePower" Height="30" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="20,10,0,0" Text="Snaga uređaja (W)" Width="380" GotFocus="txtDevicePower_GotFocus" LostFocus="txtDevicePower_LostFocus"/>
+                <TextBlock Height="20" FontSize="14" HorizontalAlignment="Left" Margin="20, 20,0, 0" Width="250"><Run Text="Prosje"/><Run Language="sr-latn-ba" Text="č"/><Run Text="an dnevni broj sati rada ure"/><Run Language="sr-latn-ba" Text="đ"/><Run Text="aja"/></TextBlock>
+                <Grid Margin="10, 10,10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Slider TabIndex="3" Name="sldHours" HorizontalAlignment="Center" Minimum="0" Maximum="24" TickFrequency="1" Value="0" IsSnapToTickEnabled="True" Height="30" Width="390"/>
+                    <Canvas Grid.Row="1" Width="390" Height="20">
+                        <TextBlock Text="{Binding Minimum, ElementName=sldHours}" Canvas.Left="0" Canvas.Top="0"/>
+                        <TextBlock Text="{Binding Maximum, ElementName=sldHours}" Canvas.Right="0" Canvas.Top="0"/>
+                        <TextBlock Text="{Binding Value, ElementName=sldHours}" Canvas.Top="0" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform X="{Binding Value, ElementName=sldHours, Converter={StaticResource SliderValueConverter}, ConverterParameter=390}"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+
+                    </Canvas>
+                </Grid>
+                <Button TabIndex="4" Name="btnAddDevice" Content="Dodaj uređaj"  FontSize="16" VerticalContentAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Width="120" Height="30" VerticalAlignment="Center" Cursor="Hand" Click="btnAddDevice_Click"/>
+            </StackPanel>
+        </Border>
+        <Border Padding="10" Background="{DynamicResource stackPanelBackground}" CornerRadius="15"  Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="267" Margin="111,80,0,0" VerticalAlignment="Top" Width="232">
+            
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                <StackPanel Grid.ColumnSpan="2" >
+                    <TextBlock HorizontalAlignment="Left" FontSize="20" Margin="10, 10, 0,0"><Run Text="Pregled potro"/><Run Language="sr-latn-ba" Text="š"/><Run Text="nje"/></TextBlock>
+                    <GroupBox Grid.ColumnSpan="2" Margin="10, 10,10,0" Height="60" Header="Dnevna potrošnja">
+                        <WrapPanel>
+                            <Label Name="lblDailyConsumption" Content="" FontSize="14" Width="90" HorizontalAlignment="Left" Margin="0,5" Height="25" HorizontalContentAlignment="Center"/>
+                            <Label Grid.Column="1" Name="lblDailyExpense" Content="" Width="90"  FontSize="14"  HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="0,5"  Height="25"/>
+                        </WrapPanel>
+                    </GroupBox>
+                    <GroupBox Grid.ColumnSpan="2" Margin="10, 10,10,0" Height="60" Header="Mjesečna potrošnja">
+                        <WrapPanel>
+                            <Label Width="90" Name="lblMonthlyConsumption" Content=""  FontSize="14" HorizontalAlignment="Left" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                            <Label Width="90" Grid.Column="1" Name="lblMonthlyExpense" Content=""  FontSize="14"  HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="0,5" Height="25"/>
+                        </WrapPanel>
+                    </GroupBox>
+                    <GroupBox Margin="10,10,10,0" Height="50" Header="Efikasnost">
+                        <Border Margin="15,5,0,5" HorizontalAlignment="Left" BorderBrush="Green" BorderThickness="0.5" Width="auto" Height="auto" CornerRadius="3" >
+                            <Label Name="lblEnergyClass" Content="" Foreground="Red"  FontSize="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ></Label>
+                        </Border>
+                    </GroupBox>
+                </StackPanel>
+            </Grid>
+           
+        </Border>
+        <Border CornerRadius="15" Background="{DynamicResource stackPanelBackground}"  Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="200" Margin="45,380,0,0" VerticalAlignment="Top" Width="700">
+
+            <StackPanel>
+                <TextBlock Margin="20,20,0,0" FontSize="20" HorizontalAlignment="Left" Height="25" Width="120"><Run Text="Svi ure"/><Run Language="sr-latn-ba" Text="đ"/><Run Text="aji"/></TextBlock>
+                <Grid Height="130" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*"></ColumnDefinition>
+                        <ColumnDefinition Width="25*"></ColumnDefinition>
+                        <ColumnDefinition Width="25*"></ColumnDefinition>
+                        <ColumnDefinition Width="25*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="33*"></RowDefinition>
+                        <RowDefinition Height="33*"></RowDefinition>
+                        <RowDefinition Height="33*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Naziv" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center"><Run Text="Potro"/><Run Language="sr-latn-ba" Text="š"/><Run Text="nja [kWh]"/></TextBlock>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Center" Margin="0,0,25,0" TextWrapping="Wrap" VerticalAlignment="Center"><Run Text="Tro"/><Run Language="sr-latn-ba" Text="š"/><Run Text="ak [KM]"/></TextBlock>
+                    <TextBlock Grid.Column="3" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Efikasnost" VerticalAlignment="Center"/>
+                    <Separator  Width="700" Grid.ColumnSpan="4" VerticalAlignment="Bottom"></Separator>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"  Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="2">
+                        <StackPanel Name="spDevices"/>
+                    </ScrollViewer>
+
+                </Grid>
+            </StackPanel>
+        </Border>
+        <Button TabIndex="0" Name="btnSettings" Grid.Column="3" Height="30" Width="30" HorizontalAlignment="Left" Margin="120,25,0,0" VerticalAlignment="Top" MouseEnter="btnSettings_MouseEnter" MouseLeave="btnSettings_MouseLeave" Cursor="Hand" Click="btnSettings_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Resources/Icon/settings.png"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>
+
