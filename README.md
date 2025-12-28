@@ -12,4 +12,5 @@ Funkcionalnosti aplikacije koje su do sada implementirane:
 - Okvirna procjena energetske klase uređaja
 
 
-<img width="1128" height="781" alt="Snimak ekrana 2025-12-28 205351" src="https://github.com/user-attachments/assets/acf3c2bd-9fbd-4af2-8d39-baed2440fc02" />
+<img width="1132" height="746" alt="image" src="https://github.com/user-attachments/assets/25ca4e9e-4339-46fd-a020-23e663f48279" />
+
