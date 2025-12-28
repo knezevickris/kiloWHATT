@@ -10,9 +10,12 @@
 
   <ItemGroup>
     <None Remove="Resources\Icon\icon.ico" />
+    <None Remove="Resources\Icon\info.ico" />
+    <None Remove="Resources\Icon\info.png" />
     <None Remove="Resources\Icon\settings.ico" />
     <None Remove="Resources\Icon\settings.png" />
     <None Remove="Resources\Images\darkSettingsBackground.jpg" />
+    <None Remove="Resources\Images\warning.png" />
     <None Remove="Resources\settingsBackground.jpg" />
   </ItemGroup>
 
@@ -24,6 +27,12 @@
     <Resource Include="Resources\Icon\icon.ico">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Icon\info.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Icon\info.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Icon\settings.ico" />
     <Resource Include="Resources\Icon\settings.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
@@ -32,6 +41,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Images\settingsBackground.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\warning.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
@@ -57,6 +69,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Config\colorsOfClasses.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Config\deviceTypesThresholds.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

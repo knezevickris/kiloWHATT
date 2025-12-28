@@ -28,7 +28,7 @@
         <TextBlock HorizontalAlignment="Right" Grid.Row="1" Text="Tema" VerticalAlignment="Center"/>
         <TextBlock HorizontalAlignment="Right"  Grid.Row="2" TextWrapping="Wrap" Text="Cijena kWh struje" VerticalAlignment="Center"/>
         <TextBox Name="txtPrice" Grid.Column="1" HorizontalAlignment="Center" HorizontalContentAlignment="Right" Grid.Row="2" Text="{}" VerticalAlignment="Center" Width="80" />
-        <ComboBox Name="cmbTheme" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Width="120" Cursor="Hand">
+        <ComboBox Name="cmbTheme" Text="Izaberi temu" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Width="120" Cursor="Hand">
             <ComboBoxItem Content="Svijetli režim"/>
             <ComboBoxItem Content="Tamni režim"/>
         </ComboBox>

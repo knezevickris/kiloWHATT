@@ -14,6 +14,10 @@ namespace efficiencyCalculator.Model
         public double Consumption { get; set; }
         public double Expense { get; set; }
         public string Class { get; set; }
+
+        public int IdDeviceType { get; set; }   
+        public DeviceType DeviceType { get; set; }
+
         public DateTime Date { get; set; }
 
         public double DailyConsumption { get; set; }

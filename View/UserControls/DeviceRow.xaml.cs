@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using efficiencyCalculator.Helpers;
 using efficiencyCalculator.Model;
 
 namespace efficiencyCalculator.View.UserComponents
@@ -27,6 +27,7 @@ namespace efficiencyCalculator.View.UserComponents
         {
             InitializeComponent();
             DataContext = device;
+            EnergyClassHelper.setBackground(brdDeviceClass, device.Class);
         }
         
 

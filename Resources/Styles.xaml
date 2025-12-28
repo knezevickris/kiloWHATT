@@ -154,7 +154,7 @@
                                 <ContentPresenter x:Name="ContentSite"
                                               Margin="{TemplateBinding Padding}"
                                               VerticalAlignment="Center"
-                                              Content="{Binding SelectionBoxItem, RelativeSource={RelativeSource TemplatedParent}}"
+                                              Content="{Binding (ComboBox.Text), RelativeSource={RelativeSource TemplatedParent}}"
                                               ContentTemplate="{Binding SelectionBoxItemTemplate, RelativeSource={RelativeSource TemplatedParent}}"
                                               ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"/>
                             </DockPanel>
