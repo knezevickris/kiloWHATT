@@ -119,7 +119,7 @@
             <TextBlock FontSize="11" Width="580" VerticalAlignment="Center" TextWrapping="Wrap" Text="Napomena: Energetske klase prikazane u ovoj aplikaciji zasnovane su na okvirnim pragovima potrošnje. Rezultati u aplikaciji služe samo kao informativna procjena, a ne kao zvanična oznaka proizvođača. EU ne propisuje energetske klase za uređaje koji rade na principu direktnog pretvaranja struje u toplotu (grijalice, radijatori. pegle, fenovi isl.)." 
                    HorizontalAlignment="Right"  />
         </WrapPanel>
-        <Button ToolTip="Informacije" Grid.Column="3" Name="btnInfo" Height="30" Width="30"  HorizontalAlignment="Left" Margin="70,25,0,0" VerticalAlignment="Top" Cursor="Hand" >
+        <Button ToolTip="Informacije" Grid.Column="3" Name="btnInfo" Height="30" Width="30"  HorizontalAlignment="Left" Margin="70,25,0,0" VerticalAlignment="Top" Cursor="Hand" Click="btnInfo_Click" >
             <Button.Background>
                 <ImageBrush ImageSource="/Resources/Icon/info.png" />
             </Button.Background>

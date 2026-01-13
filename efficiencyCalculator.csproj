@@ -15,6 +15,7 @@
     <None Remove="Resources\Icon\settings.ico" />
     <None Remove="Resources\Icon\settings.png" />
     <None Remove="Resources\Images\darkSettingsBackground.jpg" />
+    <None Remove="Resources\Images\newLabel.jpg" />
     <None Remove="Resources\Images\warning.png" />
     <None Remove="Resources\settingsBackground.jpg" />
   </ItemGroup>
@@ -38,6 +39,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Images\darkSettingsBackground.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\newLabel.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Images\settingsBackground.jpg">

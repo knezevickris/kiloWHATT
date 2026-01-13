@@ -142,5 +142,11 @@ namespace efficiencyCalculator
 
             refreshDevicesTable();
         }
+
+		private void btnInfo_Click(object sender, RoutedEventArgs e)
+		{
+            InfoWindow infoWindow = new InfoWindow();
+            infoWindow.ShowDialog();
+        }
     }
 }
